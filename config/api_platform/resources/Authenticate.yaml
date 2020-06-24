@@ -1,0 +1,42 @@
+App\Entity\Authenticate:
+  collectionOperations:
+    post:
+      method: 'POST'
+      path: '/authenticates'
+      controller: 'App/Api/Action/Authenticate/Verify'
+      normalization_context:
+        groups: ['authenticate_verify_read']
+      denormalization_context:
+        groups: ['authenticate_verify']
+      openapi_context:
+        summary: Request a Verification
+        description: Use Verify request to generate the Token
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mobile:
+                    type: string
+
+
+  itemOperations:
+    verification:
+      method: 'PATCH'
+      path: '/authenticates/{id}'
+      normalization_context:
+        groups: ['authenticate_check_read']
+      denormalization_context:
+        groups: ['authenticate_check']
+      openapi_context:
+        summary: Verify Check
+        description: Use Verify check to confirm that the Token
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string

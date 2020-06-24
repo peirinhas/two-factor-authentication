@@ -1,0 +1,10 @@
+App\Entity\Authenticate:
+  attributes:
+    id:
+      groups: ['authenticate_verify_read','authenticate_check']
+    mobile:
+      groups: ['authenticate_check_read','authenticate_verify']
+    token:
+      groups: ['authenticate_verify_read','authenticate_check']
+    active:
+      groups: ['authenticate_check_read','authenticate_verify']

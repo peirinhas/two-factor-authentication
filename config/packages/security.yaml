@@ -1,0 +1,31 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        users_in_memory: { memory: null }
+    firewalls:
+        verify:
+            pattern: ^/api/v1/authenticates
+            methods: [POST]
+            security: false
+
+        check:
+            pattern: ^/api/v1/authenticates/{id}
+            methods: [PATCH]
+            security: false
+
+        docs:
+            pattern: ^/api/v1/docs
+            methods: [GET]
+            security: false
+
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            lazy: true
+            provider: users_in_memory
+
+    access_control:
+        - { path: ^/api/v1/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/v1/authenticates, roles: IS_AUTHENTICATED_ANONYMOUSLY }
