@@ -15,4 +15,5 @@
 .docker-sync
 .php_cs.cache
 bin/.phpunit
+.unison.bundles.83f48cb19479fc19e19e99df75856507.unison.tmp
 ###< Other files ###
