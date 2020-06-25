@@ -22,7 +22,9 @@ make prepare
 /* Synchronize installed libraries with the container */
 
 make ssh-be 
+
 composer install
+
 exit
 
 
