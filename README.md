@@ -12,16 +12,26 @@ Requirements:
 After downloading the code, before testing the api, we have to perform the following steps:
 
 /* Start containers */
+
 make run
 
 /* Execute backend commands */
+
 make prepare
+
+/* Synchronize installed libraries with the container */
+
+make ssh-be 
+composer install
+exit
+
 
 
 Test:
 After to do two steps requirements, we can execute the test. There are 10 tests spread over 4 files.
 
-/*comands to execute every file */
+/* Commands to execute every file */
+
 php vendor/bin/simple-phpunit tests/Functional/Action/CheckToken.php
 
 php vendor/bin/simple-phpunit tests/Functional/Action/CheckTokenMaster.php
